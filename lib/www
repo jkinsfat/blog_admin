@@ -1,0 +1,7 @@
+const http = require('http');
+const app = require('./../app.js');
+const port = require('./../config/express.config.js').port
+
+let server = http.createServer(app);
+server.listen(port);
+server.on('listening', () => console.log('listening on port ' + port));

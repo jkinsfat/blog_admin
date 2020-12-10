@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charse="utf-8">
+        <title>Blog Admin Login</title>
+        <link rel="stylesheet" href="stylesheets/login.css">
+    <!-- <script src="javascripts/login.js"></script> -->
+    </head>
+    <body>
+        <div id="login">
+            <form id="login-form" action="/auth" method="post">
+                <label for="uname">Username</label>
+                <input type="text" id="uname" name="uname">
+                <label for="passwd">Password</label>
+                <input type="text" id="passwd" name="passwd">
+                <input type="submit" value="Login">
+            </form>
+        </div>
+        <div id="signup">
+            <form id="signup-form" action="/register" method="post">
+                <label for="uname">Username</label>
+                <input type="text" id="uname" name="uname">
+                <label for="email">Email Address</label>
+                <input type="text" id="email" name="email">
+                <label for="passwd">Password</label>
+                <input type="text" id="passwd" name="passwd">
+                <input type="submit" value="Signup">
+            </form>
+        </div>
+    </body>
+</html>
