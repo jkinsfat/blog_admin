@@ -10,13 +10,13 @@ CREATE TABLE ProjectSubscription
 
 CREATE TABLE UserProjectRole
 
-CREATE TABLE User (
+CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     username VARCHAR(30),
     email VARCHAR(30),
     password CHAR(60),
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-)
+);
 
 CREATE TABLE RoleType
 

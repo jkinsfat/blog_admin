@@ -1,10 +1,8 @@
 'use strict'
 const path = require('path');
 const indexRouter = require('express').Router();
-const indexPath = path.resolve('views/index.html');
+const indexController = require('../controllers/index.js');
 
-indexRouter.all('*', (req, res) => {
-    res.sendFile(indexPath);
-});
+indexRouter.all('*', indexController.home);
 
 module.exports = indexRouter;

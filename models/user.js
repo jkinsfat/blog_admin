@@ -2,7 +2,7 @@ const { response } = require("../app");
 const db = require('./postgres.js');
 
 module.exports = {
-    async insert (name, email, password) {
+    async insert(name, email, password) {
         try {
             const { rows } = await db.query(
                 'INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING *',
