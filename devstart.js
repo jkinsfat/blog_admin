@@ -13,7 +13,7 @@ const VIEWDIR = path.normalize(`${__dirname}/views`);
 const DBDIR = path.normalize(`${__dirname}/models`);
 const ROUTERDIR = path.normalize(`${__dirname}/routes`);
 const SERVICEDIR = path.normalize(`${__dirname}/services`);
-
+const SESSION = path.normalize(`${__dirname}/session`);
 nodemon({
     script: SERVERSTART,
     watch: [
@@ -23,7 +23,8 @@ nodemon({
       CONTROLLERDIR,
       DBDIR,
       VIEWDIR,
-      SERVICEDIR
+      SERVICEDIR,
+      SESSION
     ],
     ext: 'js,json,html,css'
   });

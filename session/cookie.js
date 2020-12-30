@@ -1,21 +1,4 @@
-const { randomBytes } = require('crypto');
-
-function pick(object, keys) {
-    return keys.reduce((obj, key) => {
-        if (object && object.hasOwnProperty(key)) {
-            obj[key] = object[key];
-        }
-        return obj;
-    }, {});
-}
-
-function generateUID(bytes) {
-    let byteBuffer = crypto.randomBytes(bytes);
-    return byteBuffer.toString('base64')
-        .replace(/=+$/, '')
-        .replace(/\+/g, '-')
-        .replace(/\//g, '_');
-}
+const pick = require('../lib/pick.js');
 
 function makeCookie(options) {
     const { maxAge, maxAgeStart } = options;
@@ -23,11 +6,13 @@ function makeCookie(options) {
         path: '/',
         maxAge: maxAge,
         httpOnly: true,
+        secure: false,
         maxAgeStart: maxAgeStart,
     }
     const completeCookie = {
         ...defaultCookie, ...options
     }
+    return completeCookie;
 }
 
 const setExpiration = {
@@ -42,7 +27,7 @@ const setExpiration = {
         return cookie;
     },
     reset: function(cookie) {
-        cookie.maxAgeStart = cookie.maxAge;
+        cookie.maxAge = cookie.maxAgeStart;
         return cookie;
     }
 }
